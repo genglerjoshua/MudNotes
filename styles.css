@@ -1,4 +1,56 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: rgb(66, 66, 66);
+    margin: 0;
 }
+
+.container-window {
+    /* fluid */
+    display: flex;
+    width: 100%;
+}
+
+.container-all {
+    display: flex;
+    height: 100vh;
+}
+
+.container-left {
+    display: flex;
+    background-color: rgb(41, 41, 41)
+}
+
+.container-right {
+    display: flex;
+
+}
+
+.menu-text {
+    color: white;
+}
+
+.note-blocks {
+    display: flex;
+}
+
+#dashboard {
+    color: white;
+}
+
+#note-list {
+    display: flex;
+}
+
+#note-form {}
+
+#note-input {
+    width: 100%;
+}
+
+#note-title {}
+
+#note-text {
+    display: flex;
+}
+
+#btn-save {}

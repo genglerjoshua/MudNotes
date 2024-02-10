@@ -16,17 +16,17 @@
 </head>
 
 <body>  
-    <div class="container-fluid overflow-hidden">
-        <div class="row vh-100 overflow-auto">
-            <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
-                <div class="flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
-                    <a href="#" class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5">M<span class="d-none d-sm-inline">udNotes</span></span>
+    <div class="container-window container-fluid overflow-hidden">
+        <div class="container-all row vh-100 overflow-auto">
+            <div class="container-left">
+                <div class="menu-text">
+                    <a href="#" class="">
+                        <span id="m" class="logo">M<span id="udnotes" class="logo">udNotes</span></span>
                     </a>
-                    <ul id="menu-main" class="d-flex nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 align-items-center align-items-sm-start">
+                    <ul id="menu-main">
                         <li>
-                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-sm-0 px-2 text-white">
-                                <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                            <a href="">
+                                <span>Dashboard</span>
                             </a>
                         </li>
 
@@ -58,42 +58,38 @@
 
                     <!-- list of saved notes -->
 
-                    <ul id="menu-list" class="d-flex flex-column p-0">
+                    <ul id="menu-list" class="">
 
                     </ul>
 
                         <!-- light/dark mode switch -->
 
-                    <div class="py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
+                    <div class="">
                         <button id="btn-dark-mode" onclick()="">Light/Dark Mode</button>
                     </div>
                 </div>
             </div>
-            <div class="col d-flex flex-column h-100">
-                <main class="row">
-                    <div class="col pt-4">
+            <div class="container-right">
+                <main>
 
                         <!-- list of notes -->
 
-                        <ul id="noteList">
-                            <li>
-                                <form id="noteForm">
+                        <ul id="note-list">
+                            <li class="note-blocks">
+                                <form id="note-form">
                                     <div class="form-group">
                                         <label for="Textarea1">
                                             <input id="note-title" class="form-control" type="text" placeholder="Title">
                                         </label>
                                         <textarea id="note-input" class="form-control" id="Textarea1" rows="3"></textarea>
                                     </div>
-                                    <div class="py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
-                                        <button id="btn-save" onclick="saveNote()">Save</button>
-                                    </div>
+                                    <button id="btn-save" onclick="saveNote()">Save</button>
                                 </form>
                             </li>
                         </ul>
-                    </div>
                 </main>
                 <!-- <footer class="row bg-light py-4 mt-auto">
-                    <div class="col"> Bottom footer content here... </div>
+                    <div class="col">Don't steal my shit</div>
                 </footer> -->
             </div>
         </div>

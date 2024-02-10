@@ -59,31 +59,46 @@ function deleteNote(event, indexToRemove) {
 function createListFromObject() {
     existingNotes = JSON.parse(localStorage.getItem('notes')) || [];
     const menuList = document.getElementById('menu-list');
+
     // replacing all the menu items with nothing
     menuList.replaceChildren();
+
     // Loop through the array and create <li> elements
     existingNotes.forEach((object, index) => {
         // Create a new <li> element
         const liElement = document.createElement('li');
-        liElement.className = 'd-inline-flex flex-row justify-content-between';
+        liElement.className = '';
         liElement.id = `${object.id}`;
         menuList.appendChild(liElement);
 
-        // Create a new <span> for the text
-        const spanElement = document.createElement('span');
-        spanElement.textContent = `${object.title}`;
-        spanElement.className = 'span-elem d-inline-flex';
-        liElement.appendChild(spanElement);
+        // Create a new <span> for the note title
+        const titleElement = document.createElement('span');
+        titleElement.textContent = `${object.title}`;
+        titleElement.className = 'title-el';
+        liElement.appendChild(titleElement);
+
+        // Create a new <span> for the note date which is converted from the object.id
+        // Converte id to a familiar date format... see above
+        const dateElement = document.createElement('span');
+        dateElement.textContent = `${object.id}`;
+        dateElement.className = 'date-el';
+        liElement.appendChild(dateElement);
+
+        // Create a new <span> for the note text
+        const noteElement = document.createElement('span');
+        noteElement.textContent = `${object.note}`;
+        noteElement.className = 'note-el';
+        liElement.appendChild(noteElement);
 
         // Create a new <button> element
         const buttonElement = document.createElement('img');
         buttonElement.src = "/assets/img/trash-solid-white.png";
         buttonElement.height = 20;
         // buttonElement.textContent = 'Delete';
-        buttonElement.className = 'delete-btn d-inline-flex';
+        buttonElement.className = 'delete-btn';
         liElement.appendChild(buttonElement);
 
-        // Add an event listener to the button to delete the list itemusing a callback
+        // Add an event listener to the button to delete the list item using a callback
         buttonElement.addEventListener('click', function (event) {
             deleteNote(event, index);
         })
