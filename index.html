@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MudMemo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
+
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/index.js" defer></script>
+</head>
+
+<body>  
+    <div class="container-fluid overflow-hidden">
+        <div class="row vh-100 overflow-auto">
+            <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
+                <div class="flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
+                    <a href="#" class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-5">M<span class="d-none d-sm-inline">udNotes</span></span>
+                    </a>
+                    <ul id="menu-main" class="d-flex nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 align-items-center align-items-sm-start">
+                        <li>
+                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-sm-0 px-2 text-white">
+                                <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <!-- organization lists for future versions -->
+
+                        <!-- <li class="dropdown">
+                            <a id="dropdown-new" class="nav-link dropdown-toggle px-sm-0 px-2 text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fs-5 bi-bootstrap"></i><span class="ms-1 d-none d-sm-inline">New</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow " aria-labelledby="dropdown">
+                                <li><a class="dropdown-item" href="#" onclick()="newNote()">New Piece</a></li>
+                                <li><a class="dropdown-item" href="#" onclick()="">New Clay Body</a></li>
+                                <li><a class="dropdown-item" href="#" onclick()="">New Recipe</a></li>
+                                <li><a class="dropdown-item" href="#" onclick()="">New Firing Schedule</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a id="dropdown-tags" class="nav-link dropdown-toggle px-sm-0 px-2 text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fs-5 bi-bootstrap"></i><span class="ms-1 d-none d-sm-inline">Sort by Tags</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
+                                <li><a class="dropdown-item" href="#" onclick()="">New Piece</a></li>
+                                <li><a class="dropdown-item" href="#" onclick()="">New Clay Body</a></li>
+                                <li><a class="dropdown-item" href="#" onclick()="">New Recipe</a></li>
+                                <li><a class="dropdown-item" href="#" onclick()="">New Firing Schedule</a></li>
+                            </ul>
+                        </li> -->
+                    </ul>
+
+                    <!-- list of saved notes -->
+
+                    <ul id="menu-list" class="d-flex flex-column p-0">
+
+                    </ul>
+
+                        <!-- light/dark mode switch -->
+
+                    <div class="py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
+                        <button id="btn-dark-mode" onclick()="">Light/Dark Mode</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex flex-column h-100">
+                <main class="row">
+                    <div class="col pt-4">
+
+                        <!-- list of notes -->
+
+                        <ul id="noteList">
+                            <li>
+                                <form id="noteForm">
+                                    <div class="form-group">
+                                        <label for="Textarea1">
+                                            <input id="note-title" class="form-control" type="text" placeholder="Title">
+                                        </label>
+                                        <textarea id="note-input" class="form-control" id="Textarea1" rows="3"></textarea>
+                                    </div>
+                                    <div class="py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
+                                        <button id="btn-save" onclick="saveNote()">Save</button>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </main>
+                <!-- <footer class="row bg-light py-4 mt-auto">
+                    <div class="col"> Bottom footer content here... </div>
+                </footer> -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
