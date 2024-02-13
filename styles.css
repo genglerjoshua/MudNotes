@@ -4,10 +4,11 @@ body {
     margin: 0;
 }
 
-.container-window {
+/* .container-window {
+    display: flex;
     overflow: hidden;
     width: 100vw;
-}
+} */
 
 .container-all {
     display: flex;
@@ -15,13 +16,13 @@ body {
     flex-wrap: nowrap;
     height: 100vh;
     width: 100vw;
-    overflow: auto;
 }
+
 
 .container-left {
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    height: 100vh;
     width: 20vw;
     background-color: rgb(41, 41, 41);
     padding: 20px;
@@ -39,13 +40,6 @@ body {
     color: white;
 }
 
-.note-blocks {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin-bottom: 40px;
-}
-
 .logo {
     color: white;
 }
@@ -60,8 +54,8 @@ body {
     min-width: 20%;
     margin-right: auto;
     padding: 5px;
-    background-color: grey;
-    border-radius: 10px
+    border-radius: 10px;
+    color: white;
 }
 
 .date-el {
@@ -92,11 +86,17 @@ body {
     margin-top: auto;
 }
 
-#note-list {
+#note-form {
+    display: flex;
+    flex-direction: column;
     width: 90%;
+    margin-bottom: 40px;
 }
 
-#note-form {}
+#note-list {
+    padding: 0;
+    width: 90%;
+}
 
 #note-input {
     margin-bottom: 10px;

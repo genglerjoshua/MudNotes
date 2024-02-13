@@ -1,29 +1,23 @@
-// function for date and time
-function dateFormat() {
-    const timestamp = Date.now();
-    const currentDate = new Date(timestamp);
-
-    const year = currentDate.getFullYear();
-    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
-    const day = currentDate.getDate().toString().padStart(2, '0');
-    const hours = currentDate.getHours().toString().padStart(2, '0');
-    const minutes = currentDate.getMinutes().toString().padStart(2, '0');
-    const seconds = currentDate.getSeconds().toString().padStart(2, '0');
-
-    const customFormattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-}
+// date and time
+const timestamp = Date.now();
+const currentDate = new Date(timestamp);
+const year = currentDate.getFullYear();
+const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+const day = currentDate.getDate().toString().padStart(2, '0');
+const customFormattedDate = `${month}-${day}-${year}`;
 
 const titleInput = document.getElementById('note-title');
 const noteInput = document.getElementById('note-input');
 let existingNotes = [];
 
-function exportNote() {
+function exportNotes() {
     localStorage.setItem('notes', JSON.stringify(existingNotes));
 }
 
 function saveNote() {
+
     newNote = {
-        id: Date.now(),
+        id: timestamp,
         title: titleInput.value,
         note: noteInput.value,
         //tag input checkboxes
@@ -33,7 +27,7 @@ function saveNote() {
     existingNotes.push(newNote);
 
     //save to local storaged json
-    exportNote();
+    exportNotes();
 
     titleInput.value = '';
     noteInput.value = '';
@@ -47,12 +41,11 @@ function deleteNote(event, indexToRemove) {
     // const listItem = event.target.parentNode;
     // listItem.remove();
     // remove item from existingNotes
-    // indexToRemove = existingNotes.findIndex(object => object.id === `${object.id}`);
+    // indexToRemove = existingNotes.findIndex(object => object.id === `${ object.id }`);
     existingNotes.splice(indexToRemove, 1);
 
-    exportNote();
+    exportNotes();
     createListFromObject();
-    console.log(existingNotes);
 }
 
 // Function to create an HTML list from an object
@@ -68,19 +61,17 @@ function createListFromObject() {
         // Create a new <li> element
         const liAElement = document.createElement('li');
         liAElement.className = 'list-el';
-        liAElement.id = `${object.id}`;
         noteList.appendChild(liAElement);
 
         // Create a new <span> for the note title
         const titleElement = document.createElement('span');
-        titleElement.textContent = `${object.title}`;
+        titleElement.textContent = `${object.title} `;
         titleElement.className = 'title-el';
         liAElement.appendChild(titleElement);
 
-        // Create a new <span> for the note date which is converted from the object.id
-        // Converte id to a familiar date format... see above
+        // Create a new <span> for the note date
         const dateElement = document.createElement('span');
-        dateElement.textContent = `${object.id}`;
+        dateElement.textContent = `${customFormattedDate} `;
         dateElement.className = 'date-el';
         liAElement.appendChild(dateElement);
 
@@ -94,12 +85,11 @@ function createListFromObject() {
 
         const liBElement = document.createElement('li');
         liBElement.className = 'list-el';
-        liBElement.id = `${object.id}`;
         noteList.appendChild(liBElement);
 
         // Create a new <span> for the note text
         const noteElement = document.createElement('span');
-        noteElement.textContent = `${object.note}`;
+        noteElement.textContent = `${object.note} `;
         noteElement.className = 'note-el';
         liBElement.appendChild(noteElement);
 
@@ -112,3 +102,4 @@ function createListFromObject() {
 
 // Call the function to show saved notes
 createListFromObject();
+console.log(existingNotes);
