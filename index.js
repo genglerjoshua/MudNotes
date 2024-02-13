@@ -58,37 +58,31 @@ function deleteNote(event, indexToRemove) {
 // Function to create an HTML list from an object
 function createListFromObject() {
     existingNotes = JSON.parse(localStorage.getItem('notes')) || [];
-    const menuList = document.getElementById('menu-list');
+    const noteList = document.getElementById('note-list');
 
     // replacing all the menu items with nothing
-    menuList.replaceChildren();
+    noteList.replaceChildren();
 
     // Loop through the array and create <li> elements
     existingNotes.forEach((object, index) => {
         // Create a new <li> element
-        const liElement = document.createElement('li');
-        liElement.className = '';
-        liElement.id = `${object.id}`;
-        menuList.appendChild(liElement);
+        const liAElement = document.createElement('li');
+        liAElement.className = 'list-el';
+        liAElement.id = `${object.id}`;
+        noteList.appendChild(liAElement);
 
         // Create a new <span> for the note title
         const titleElement = document.createElement('span');
         titleElement.textContent = `${object.title}`;
         titleElement.className = 'title-el';
-        liElement.appendChild(titleElement);
+        liAElement.appendChild(titleElement);
 
         // Create a new <span> for the note date which is converted from the object.id
         // Converte id to a familiar date format... see above
         const dateElement = document.createElement('span');
         dateElement.textContent = `${object.id}`;
         dateElement.className = 'date-el';
-        liElement.appendChild(dateElement);
-
-        // Create a new <span> for the note text
-        const noteElement = document.createElement('span');
-        noteElement.textContent = `${object.note}`;
-        noteElement.className = 'note-el';
-        liElement.appendChild(noteElement);
+        liAElement.appendChild(dateElement);
 
         // Create a new <button> element
         const buttonElement = document.createElement('img');
@@ -96,7 +90,18 @@ function createListFromObject() {
         buttonElement.height = 20;
         // buttonElement.textContent = 'Delete';
         buttonElement.className = 'delete-btn';
-        liElement.appendChild(buttonElement);
+        liAElement.appendChild(buttonElement);
+
+        const liBElement = document.createElement('li');
+        liBElement.className = 'list-el';
+        liBElement.id = `${object.id}`;
+        noteList.appendChild(liBElement);
+
+        // Create a new <span> for the note text
+        const noteElement = document.createElement('span');
+        noteElement.textContent = `${object.note}`;
+        noteElement.className = 'note-el';
+        liBElement.appendChild(noteElement);
 
         // Add an event listener to the button to delete the list item using a callback
         buttonElement.addEventListener('click', function (event) {

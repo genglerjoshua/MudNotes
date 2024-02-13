@@ -19,7 +19,6 @@
     <div class="container-window">
         <div class="container-all">
             <div class="container-left">
-                <div class="menu-text">
                     <a href="#" class="">
                         <span id="m" class="logo">M<span id="udnotes" class="logo">udNotes</span></span>
                     </a>
@@ -61,32 +60,31 @@
 
                         <!-- light/dark mode switch -->
 
-                    <div class="">
-                        <button id="btn-dark-mode" onclick()="">Light/Dark Mode</button>
-                    </div>
-                </div>
+                    <button id="btn-dark-mode" onclick()="">Light/Dark Mode</button>
             </div>
             <div class="container-right">
                 <main>
 
                         <!-- list of notes -->
+                    <section>
+                        <ul id="note-input">
+                            <li class="note-blocks">
+                                <form id="note-form">
+                                    <div class="form-group">
+                                        <label for="Textarea1">
+                                            <input id="note-title" class="form-control" type="text" placeholder="Title">
+                                        </label>
+                                        <textarea id="note-input" class="form-control" id="Textarea1" rows="3" placeholder="Write Notes Here"></textarea>
+                                    </div>
+                                    <button id="btn-save" onclick="saveNote()">Save</button>                                </form>
+                            </li>
+                        </ul>
+                    </section>  
+                    <section>
+                        <ul id="note-list" class="">
 
-                     <ul id="note-list">
-                        <li class="note-blocks">
-                            <form id="note-form">
-                                <div class="form-group">
-                                    <label for="Textarea1">
-                                        <input id="note-title" class="form-control" type="text" placeholder="Title">
-                                    </label>
-                                    <textarea id="note-input" class="form-control" id="Textarea1" rows="3" placeholder="Write Notes Here"></textarea>
-                                </div>
-                                <button id="btn-save" onclick="saveNote()">Save</button>                                </form>
-                        </li>
-                    </ul>
-                        
-                    <ul id="menu-list" class="">
-
-                    </ul>
+                        </ul>
+                    </section>
                 </main>
                 <!-- <footer class="row bg-light py-4 mt-auto">
                     <div class="col">Don't steal my shit</div>
