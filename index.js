@@ -8,6 +8,7 @@ const customFormattedDate = `${month}-${day}-${year}`;
 
 const titleInput = document.getElementById('note-title');
 const noteInput = document.getElementById('note-input');
+
 let existingNotes = [];
 
 // Function to export the notes to the JSON
@@ -81,7 +82,6 @@ function createListFromObject() {
         const buttonElement = document.createElement('img');
         buttonElement.src = "/assets/img/trash-solid-white.png";
         buttonElement.height = 20;
-        // buttonElement.textContent = 'Delete';
         buttonElement.className = 'delete-btn';
         liAElement.appendChild(buttonElement);
 
