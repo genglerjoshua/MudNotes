@@ -1,6 +1,6 @@
 // date and time
-const timestamp = Date.now();
-const currentDate = new Date(timestamp);
+const timeStamp = Date.now();
+const currentDate = new Date(timeStamp);
 const year = currentDate.getFullYear();
 const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
 const day = currentDate.getDate().toString().padStart(2, '0');
@@ -10,23 +10,24 @@ const titleInput = document.getElementById('note-title');
 const noteInput = document.getElementById('note-input');
 let existingNotes = [];
 
+// Function to export the notes to the JSON
 function exportNotes() {
     localStorage.setItem('notes', JSON.stringify(existingNotes));
 }
 
+// Function to create an object when you click the "save" button
 function saveNote() {
-
     newNote = {
-        id: timestamp,
+        id: customFormattedDate,
         title: titleInput.value,
         note: noteInput.value,
-        //tag input checkboxes
+        //tag input checkboxes for future update
         // tags:
     };
 
+    // Pushes new note to the existing notes in the JSON
     existingNotes.push(newNote);
 
-    //save to local storaged json
     exportNotes();
 
     titleInput.value = '';
@@ -35,6 +36,7 @@ function saveNote() {
     createListFromObject();
 }
 
+// Function to delete the selected note from the array of objects then saves to the JSON
 function deleteNote(event, indexToRemove) {
 
     // Remove the parent li element of the clicked button
@@ -71,7 +73,7 @@ function createListFromObject() {
 
         // Create a new <span> for the note date
         const dateElement = document.createElement('span');
-        dateElement.textContent = `${customFormattedDate} `;
+        dateElement.textContent = `${object.id} `;
         dateElement.className = 'date-el';
         liAElement.appendChild(dateElement);
 
