@@ -6,9 +6,11 @@ const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
 const day = currentDate.getDate().toString().padStart(2, '0');
 const customFormattedDate = `${month}-${day}-${year}`;
 
-const titleInput = document.getElementById('note-title');
+const titleInput = document.getElementById('note-title-input');
 const noteInput = document.getElementById('note-input');
+const checkboxes = document.querySelectorAll('#note-categories input[type="checkbox"]');
 
+let tags = [];
 let existingNotes = [];
 
 // Function to export the notes to the JSON
@@ -18,13 +20,21 @@ function exportNotes() {
 
 // Function to create an object when you click the "save" button
 function saveNote() {
+
+    checkboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            tags.push(checkbox.name);
+        }
+    });
+
     newNote = {
         id: customFormattedDate,
         title: titleInput.value,
         note: noteInput.value,
-        //tag input checkboxes for future update
-        // tags:
+        tags: tags
     };
+
+    console.log(newNote);
 
     // Pushes new note to the existing notes in the JSON
     existingNotes.push(newNote);
@@ -39,12 +49,6 @@ function saveNote() {
 
 // Function to delete the selected note from the array of objects then saves to the JSON
 function deleteNote(event, indexToRemove) {
-
-    // Remove the parent li element of the clicked button
-    // const listItem = event.target.parentNode;
-    // listItem.remove();
-    // remove item from existingNotes
-    // indexToRemove = existingNotes.findIndex(object => object.id === `${ object.id }`);
     existingNotes.splice(indexToRemove, 1);
 
     exportNotes();
@@ -61,10 +65,16 @@ function createListFromObject() {
 
     // Loop through the array and create <li> elements
     existingNotes.forEach((object, index) => {
-        // Create a new <li> element
+
+        // Create a new div to attach group (liAElement and liBElement) to notList
+        const divElements = document.createElement('div');
+        divElements.className = 'li-group';
+        noteList.appendChild(divElements);
+
+        // Create a new <li> elements
         const liAElement = document.createElement('li');
-        liAElement.className = 'list-el';
-        noteList.appendChild(liAElement);
+        liAElement.className = 'list-el-a';
+        divElements.appendChild(liAElement);
 
         // Create a new <span> for the note title
         const titleElement = document.createElement('span');
@@ -86,14 +96,20 @@ function createListFromObject() {
         liAElement.appendChild(buttonElement);
 
         const liBElement = document.createElement('li');
-        liBElement.className = 'list-el';
-        noteList.appendChild(liBElement);
+        liBElement.className = 'list-el-b';
+        divElements.appendChild(liBElement);
 
         // Create a new <span> for the note text
         const noteElement = document.createElement('span');
         noteElement.textContent = `${object.note} `;
         noteElement.className = 'note-el';
         liBElement.appendChild(noteElement);
+
+        // Create a new <span> for the tags text
+        const tagsElement = document.createElement('span');
+        tagsElement.textContent = "Tags:" + `${object.tags}`;
+        tagsElement.className = 'tags-el';
+        liBElement.appendChild(tagsElement);
 
         // Add an event listener to the button to delete the list item using a callback
         buttonElement.addEventListener('click', function (event) {

@@ -1,6 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(93, 93, 100);
+    font-size: 14px;
+    background-color: rgb(95, 95, 95);
     margin: 0;
 }
 
@@ -39,24 +40,38 @@ a {
     text-decoration: none;
 }
 
-.list-el {
+.li-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-el-a {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+}
+
+.list-el-b {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #0B1215;
+    background-color: rgb(165, 165, 165);
 }
 
 .title-el {
     min-width: 20%;
     margin-right: auto;
     padding: 5px;
-    border-radius: 10px;
     color: white;
 }
 
 .date-el {
     margin-left: auto;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white;
 }
 
@@ -68,12 +83,13 @@ a {
 }
 
 .note-el {
-    display: flex;
-    width: 100%;
-    padding: 10px;
-    color: #0B1215;
-    background-color: rgb(165, 165, 165);
-    border-radius: 10px;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+.tags-el {
+    margin-left: auto;
+    margin-top: 5px;
 }
 
 #note-form {
@@ -84,28 +100,38 @@ a {
 }
 
 #note-list {
+    display: flex;
+    flex-direction: column-reverse;
     padding: 0;
     width: 90%;
 }
 
-#note-title {
+#note-title-input {
     display: flex;
     border-style: none;
-    border-radius: 10px;
+    border-radius: 5px;
     height: 30px;
     width: 30%;
     padding: 5px 5px 5px 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-family: 'Roboto', sans-serif;
 }
 
 #note-input {
     display: flex;
     border-style: none;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
     font-family: 'Roboto', sans-serif;
+}
+
+#note-categories {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
 }
 
 #note-text {
@@ -117,7 +143,7 @@ a {
     border: none;
     width: 50px;
     height: 30px;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: rgb(0, 156, 0);
     color: white;
     font-family: 'Roboto', sans-serif;

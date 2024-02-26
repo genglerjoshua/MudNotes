@@ -70,12 +70,27 @@
                 <main id="container-right">
                     <section id="top">
                         <form id="note-form">
-                            
+                            <div id="top-section-form">
                                 <label for="Textarea1">
-                                    <input id="note-title" class="form" type="text" placeholder="Title">
+                                    <input id="note-title-input" class="form" type="text" placeholder="Title">
                                 </label>
+                                <div id="note-categories">
+                                    <p>Note Tag(s):</p>
+                                    <label>
+                                        <input type="checkbox" name=" Claybody Recipe"> Claybody Recipe
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name=" Glaze Recipe"> Glaze Recipe
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name=" Piece Technique"> Piece Technique
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name=" Firing Schedule"> Firing Schedule
+                                    </label>
+                                </div>
+                            </div>
                                 <textarea id="note-input" class="form" id="Textarea1" rows="3" placeholder="Write Notes Here"></textarea>
-                            
                             <button id="btn-save" onclick="saveNote()">Save</button>
                         </form>
                     </section>  
