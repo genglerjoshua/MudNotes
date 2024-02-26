@@ -19,7 +19,7 @@ body {
     position: fixed;
     height: 100vh;
     width: 15%;
-    background-color: rgb(24, 21, 41);
+    background-color: rgb(24, 24, 24);
     padding: 20px;
     color: white;
 }
@@ -32,12 +32,12 @@ body {
     margin-left: 20vw;
 }
 
-.logo {
-    color: white;
-}
-
 a {
     text-decoration: none;
+}
+
+.tag {
+    margin-left: 10px;
 }
 
 .li-group {
@@ -92,6 +92,13 @@ a {
     margin-top: 5px;
 }
 
+#logo {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    margin-top: 0;
+    color: white;
+}
+
 #note-form {
     display: flex;
     flex-direction: column;
@@ -130,7 +137,7 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
     color: white;
 }
 
