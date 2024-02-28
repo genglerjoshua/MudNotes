@@ -110,6 +110,7 @@ input[type=checkbox] {
 .delete-btn {
     float: right;
     cursor: pointer;
+    height: 20px;
     margin: 0;
     margin-left: 20px;
 }

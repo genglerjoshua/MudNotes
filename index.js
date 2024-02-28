@@ -133,7 +133,6 @@ function createListFromObject(existingNotes) {
         // Create a new <button> element
         const buttonElement = document.createElement('img');
         buttonElement.src = "assets/img/trash-solid-white.png";
-        buttonElement.height = 20;
         buttonElement.className = 'delete-btn';
         liAElement.appendChild(buttonElement);
 
