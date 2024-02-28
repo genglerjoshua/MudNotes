@@ -8,20 +8,22 @@ const customFormattedDate = `${month}-${day}-${year}`;
 
 const titleInput = document.getElementById('note-title-input');
 const noteInput = document.getElementById('note-input');
-const checkboxes = document.querySelectorAll('#note-categories input[type="checkbox"]');
+const checkboxInput = document.querySelectorAll('#note-categories input[type="checkbox"]');
 
 let tags = [];
-let existingNotes = [];
+
+existingNotes = JSON.parse(localStorage.getItem('notes')) || [];
 
 // Function to export the notes to the JSON
 function exportNotes() {
     localStorage.setItem('notes', JSON.stringify(existingNotes));
 }
 
+
 // Function to create an object when you click the "save" button
 function saveNote() {
 
-    checkboxes.forEach(function (checkbox) {
+    checkboxInput.forEach(function (checkbox) {
         if (checkbox.checked) {
             tags.push(checkbox.name);
         }
@@ -34,30 +36,70 @@ function saveNote() {
         tags: tags
     };
 
-    console.log(newNote);
 
     // Pushes new note to the existing notes in the JSON
     existingNotes.push(newNote);
 
     exportNotes();
 
+    // resets input note form
     titleInput.value = '';
     noteInput.value = '';
 
-    createListFromObject();
+    checkboxInput.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    createListFromObject(existingNotes);
 }
+
 
 // Function to delete the selected note from the array of objects then saves to the JSON
 function deleteNote(event, indexToRemove) {
     existingNotes.splice(indexToRemove, 1);
 
     exportNotes();
-    createListFromObject();
+    createListFromObject(existingNotes);
 }
 
+
+// Function to display notes with certain tags as filtered by left container tags checkbox form
+const filterForm = document.getElementById('tag-form');
+const checkboxFilter = filterForm.querySelectorAll('input[type="checkbox"]');
+
+function filterNotes() {
+    //get info from the type of input from the form = checkbox
+    const selectedTags = Array.from(checkboxFilter).filter(checkbox => checkbox.checked).map(checkbox => checkbox.name);
+    console.log(selectedTags);
+    const filteredNotes = existingNotes.filter(note => {
+        return selectedTags.some(tag => note.tags.includes(tag));
+    });
+
+    if (selectedTags.length == 0) {
+        createListFromObject(existingNotes);
+    } else {
+        createListFromObject(filteredNotes);
+    }
+}
+
+
+// Add event listener to reset event of the form
+filterForm.addEventListener('reset', resetFilters);
+
+// Function to reset the filter
+function resetFilters() {
+    // Uncheck all checkboxes
+    checkboxFilter.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    createListFromObject(existingNotes);
+}
+
+
 // Function to create an HTML list from an object
-function createListFromObject() {
-    existingNotes = JSON.parse(localStorage.getItem('notes')) || [];
+function createListFromObject(existingNotes) {
+
     const noteList = document.getElementById('note-list');
 
     // replacing all the menu items with nothing
@@ -118,6 +160,4 @@ function createListFromObject() {
     });
 };
 
-// Call the function to show saved notes
-createListFromObject();
-console.log(existingNotes);
+createListFromObject(existingNotes);
