@@ -1,11 +1,17 @@
 #About
 
-This is a personal portfolio for Joshua Gengler. It is meant to showcase my abilities in Front-End Development.
+##V1
+MudNotes is a web app created for the purpose of learning Javascript.
 
-The porfolio showcases languages including but not limited to:
+It is made specifically for ceramic artists to create notes for their specific craft. 
+
+As of V1 it is only saving notes locally in the JSON. 
+
+V1 languages, frameworks, libraries used:
+
 -HTML
 -CSS
 -Javascript
--JQuery
 -Bootstrap
--React
+
+##V2 is currently in production and will have upgrades to the responsiveness. It will also include React.
