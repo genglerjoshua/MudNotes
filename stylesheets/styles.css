@@ -1,6 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    height: 100vh;
-    width: 100vw;
+    width: 100%;
     font-family: 'Roboto', sans-serif;
     font-size: 13px;
     margin: 0;
@@ -13,39 +16,36 @@ h2 {
     color: white;
 }
 
-#container-all {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100vw;
-}
-
-
-#container-left {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    height: 100vh;
-    background-color: rgb(24, 24, 24);
-    padding: 30px 20px 20px 20px;
-    color: white;
-}
-
-#container-right {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 30px 20px 20px 20px;
-    margin-left: 200px;
-
-}
-
 a {
     text-decoration: none !important;
 }
 
 input[type=checkbox] {
     accent-color: rgb(0, 156, 0);
+}
+
+.container-all {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background: rgb(121, 121, 121);
+    background: linear-gradient(320deg, rgba(121, 121, 121, 1) 0%, rgb(70, 70, 70) 100%);
+}
+
+.container-left {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgb(24, 24, 24);
+    padding: 30px 20px 20px 20px;
+    color: white;
+}
+
+.container-right {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 30px 20px 20px 20px;
 }
 
 .list-group-item {
@@ -89,7 +89,7 @@ input[type=checkbox] {
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
-    color: #0B1215;
+    color: .0B1215;
     background-color: rgb(165, 165, 165);
 }
 
@@ -125,29 +125,20 @@ input[type=checkbox] {
     margin-top: 5px;
 }
 
-#container-window {
-    height: 100vh;
-    width: 100vw;
-    background-size: "cover";
-    background-clip: fixed;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    background: rgb(121, 121, 121);
-    background: linear-gradient(320deg, rgba(121, 121, 121, 1) 0%, rgb(70, 70, 70) 100%);
-}
-
-#logo {
+.logo {
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
     margin-top: 0;
     color: white;
 }
 
-#tag-form {
+.tag-form {
+    display: flex;
+    flex-direction: column;
     margin-top: 5px;
 }
 
-#reset-btn {
+.reset-btn {
     border: none;
     width: 50px;
     height: 30px;
@@ -158,46 +149,47 @@ input[type=checkbox] {
     color: white;
 }
 
-#reset-btn:hover {
+.reset-btn:hover {
     background-color: rgb(200, 0, 0);
     cursor: pointer;
 }
 
-#note-form {
+.note-form {
     display: flex;
     flex-direction: column;
     width: 90%;
     margin-bottom: 40px;
 }
 
-#note-list {
+.note-list {
     display: flex;
     flex-direction: column-reverse;
     padding: 0;
     width: 90%;
 }
 
-#note-title-input {
+.note-title-input {
     display: flex;
     border-style: none;
     border-radius: 5px;
     height: 30px;
-    width: 25vw;
+    width: 50%;
     padding: 5px 5px 5px 10px;
     margin-bottom: 5px;
     font-family: 'Roboto', sans-serif;
 }
 
-#note-input {
+.note-input {
     display: flex;
     border-style: none;
     border-radius: 5px;
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     font-family: 'Roboto', sans-serif;
 }
 
-#note-categories {
+.note-categories {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -205,12 +197,12 @@ input[type=checkbox] {
     color: white;
 }
 
-#note-text {
+.note-text {
     display: flex;
     font-family: 'Roboto', sans-serif;
 }
 
-#btn-save {
+.btn-save {
     border: none;
     width: 50px;
     height: 30px;
@@ -220,7 +212,7 @@ input[type=checkbox] {
     font-family: 'Roboto', sans-serif;
 }
 
-#btn-save:hover {
+.btn-save:hover {
     background-color: rgb(0, 200, 0);
     cursor: pointer;
 }
@@ -246,7 +238,7 @@ input[type=checkbox] {
 
 label {
     font-size: 13px;
-    color: #424242;
+    color: .424242;
     font-weight: 500;
 }
 
@@ -260,7 +252,7 @@ label {
     margin: 0px;
     width: 140px;
     height: 30px;
-    background: #E0E0E0;
+    background: .E0E0E0;
     border-radius: 26px;
     overflow: hidden;
     position: relative;
@@ -282,14 +274,14 @@ label {
     content: attr(data-off);
     width: 70px;
     height: 16px;
-    background: #fff;
+    background: .fff;
     border-radius: 26px;
     position: absolute;
     left: 2px;
     top: 2px;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0px 0px 6px -2px #111;
+    box-shadow: 0px 0px 6px -2px .111;
     padding: 5px 0px;
 }
 
@@ -305,14 +297,14 @@ label {
 }
 
 .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner {
-    background-color: #151515;
-    color: #fff;
+    background-color: .151515;
+    color: .fff;
 }
 
 .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:after {
     content: attr(data-on);
     left: 68px;
-    background-color: #3c3c3c;
+    background-color: .3c3c3c;
 }
 
 .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:before {
