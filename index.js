@@ -108,7 +108,7 @@ function createListFromObject(existingNotes) {
     // Loop through the array and create <li> elements
     existingNotes.forEach((object, index) => {
 
-        // Create a new div to attach group (liAElement and liBElement) to notList
+        // Create a new div to attach group (liAElement and liBElement) to noteList
         const divElements = document.createElement('div');
         divElements.className = 'li-group';
         noteList.appendChild(divElements);

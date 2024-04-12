@@ -77,13 +77,15 @@ input[type=checkbox] {
     flex-direction: column;
 }
 
-.list-el-a {
+
+
+.note-el-a {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.list-el-b {
+.note-el-b {
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -157,15 +159,14 @@ input[type=checkbox] {
 .note-form {
     display: flex;
     flex-direction: column;
-    width: 90%;
-    margin-bottom: 40px;
+    width: 100%;
 }
 
 .note-list {
     display: flex;
     flex-direction: column-reverse;
-    padding: 0;
-    width: 90%;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .note-title-input {
